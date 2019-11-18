@@ -1,0 +1,20 @@
+ID: SCP_Demo
+_schema-version: '2.1'
+description: SCP Demo Application
+version: 0.0.1
+
+modules:
+ - name: SCP_HDB
+   type: hdb
+   path: SCP_HDB
+   requires:
+    - name: hdi_SCP_HDB
+
+resources:
+ - name: hdi_SCP_HDB
+   parameters:
+      config:
+         schema: SCPHDB
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
